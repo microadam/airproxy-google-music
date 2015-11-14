@@ -1,0 +1,14 @@
+{
+  "name": "airproxy-google-music",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "~1.5.0",
+    "playmusic": "~2.0.3",
+    "request": "~2.65.0",
+    "airtunes": "git+ssh://git@github.com:microadam/node_airtunes.git",
+    "lame": "~1.2.3"
+  }
+}
