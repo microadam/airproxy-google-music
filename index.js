@@ -62,7 +62,7 @@ function playStation(stationId) {
     if (stationId === 'random') {
       playRandomStation();
     } else {
-      playSpecficStation(stationId);
+      playSpecificStation(stationId);
     }
   });
 }
