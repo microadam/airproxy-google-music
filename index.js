@@ -8,6 +8,7 @@ var AirTunes = require('airtunes').AirTunes;
 var player = new AirTunes();
 
 var isPlaying = false;
+var trackMeta = '';
 
 var googleEmail = process.env.EMAIL;
 var googlePassword = process.env.PASSWORD;
@@ -52,6 +53,9 @@ http.createServer(function (req, res) {
   } else if (action === 'status') {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end(isPlaying ? 'on' : 'off');
+  } else if (action === 'meta') {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end(trackMeta);
   }
 
 }).listen(7637, '0.0.0.0');
@@ -89,6 +93,7 @@ function playSpecificStation(stationId) {
 
 function playTrack(device, track, callback) {
   console.log('playing:', track.artist, '-', track.album, '-', track.title);
+  trackMeta = track.artist + ' - ' + track.album + ' - ' + track.title;
   pm.getStreamUrl(track.storeId, function (error, res) {
     if (error) throw error;
 
